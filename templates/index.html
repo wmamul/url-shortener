@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" href="data:,">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <title>Url Shortener</title>
+  </head>
+  <body>
+    <h1 class="d-flex justify-content-center">Shorten your URLs!</h1>
+    <div class="contaier d-flex justify-content-center">
+        <div class="row">
+            <form method="POST">
+                <div class="row">
+                    <label class="form-label">URL to shorten:</label>
+                    <input name="url" class="form-control">
+                    <div class="d-flex gy-3 justify-content-center">
+                        <button type="submit" class="btn btn-primary">Go!</button>
+                    </div>
+                </div>
+            </form>
+            {% if slug %}
+            <div class="d-flex gy-5 justify-content-center">
+                <p>Shorter link: /{{ slug }}</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+  </body>
+</html>
