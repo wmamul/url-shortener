@@ -1,3 +1,4 @@
+import os
 import string
 import random
 from flask import Flask, request, redirect, render_template, flash
@@ -5,6 +6,7 @@ import redis
 import validators
 
 application = Flask(__name__, template_folder='templates/')
+application.config.update(SECRET_KEY=os.environ['FLASK_SECRET'])
 r = redis.Redis()
 
 def slug_generator(size=6, chars=string.ascii_letters + string.digits):

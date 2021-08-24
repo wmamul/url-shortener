@@ -10,6 +10,15 @@
     <title>Url Shortener</title>
   </head>
   <body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul class="flashes d-flex justify-content-center">
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
     <h1 class="d-flex justify-content-center">Shorten your URLs!</h1>
     <div class="contaier d-flex justify-content-center">
         <div class="row">
@@ -24,7 +33,7 @@
             </form>
             {% if slug %}
             <div class="d-flex gy-5 justify-content-center">
-                <p>Shorter link: /{{ slug }}</p>
+                Shorter link: <a href="http://localhost:5000/{{ slug }}" target="_blank">http://localhost/{{ slug }}</a>
             </div>
             {% endif %}
         </div>
